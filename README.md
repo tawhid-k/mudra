@@ -1,65 +1,74 @@
 # Mudra
 
-## Description
-Mudra is a Flutter application built with modern mobile development practices. The project is set up with both iOS and Android configurations and uses Flutter's recommended project structure.
+Mudra is a Flutter mobile app prototype for personal investing and portfolio tracking. It brings together a wallet-style home screen, market discovery, buy/sell flows, portfolio holdings, watchlists, fund movement, profile settings, and transaction history in one mobile experience.
+
+> This project is a UI/prototype app with local sample data. It is not connected to live brokerage, banking, or market-data services.
+
+## Demo
+
+<p>
+  <img src="docs/screenshots/home.jpg" alt="Mudra home screen" width="220">
+  <img src="docs/screenshots/dashboard.jpg" alt="Mudra dashboard screen" width="220">
+  <img src="docs/screenshots/companylist.jpg" alt="Mudra company list screen" width="220">
+  <img src="docs/screenshots/portfolio.jpg" alt="Mudra portfolio screen" width="220">
+</p>
+
+## Features
+
+- Bottom-tab navigation for Home, Invest, Move, Portfolio, and Settings
+- Wallet and investment balance cards on the home screen
+- Market discovery screen with search, gainers/losers filters, company cards, and chart previews
+- Company detail pages with line charts, stats, buy-share, and alert flows
+- Portfolio holdings and watchlist screens powered by local JSON records
+- Add/withdraw fund entry points
+- Profile, account settings, identity information, and transaction history screens
+- Custom Nunito font styling and Flutter Material UI components
 
 ## Tech Stack
+
 - Flutter
-- Kotlin (Android) version 1.6.10
-- Swift (iOS)
-- Gradle (Android build system)
+- Dart
+- `fl_chart` for chart rendering
+- `percent_indicator` for progress-style UI
+- Local JSON fixtures for sample portfolio, watchlist, and transaction records
+- Android and iOS project scaffolding
 
-## Project Setup
-### Prerequisites
-- Flutter SDK
-- Android Studio/Xcode (depending on target platform)
-- iOS 11.0 or later (for iOS deployment)
+## Project Structure
 
-### Getting Started
-1. Clone the repository
-```bash
-git clone [your-repository-url]
-cd Mudra
+```text
+.
+├── android/                 # Android platform project
+├── docs/screenshots/        # README/demo screenshots
+├── ios/                     # iOS platform project
+├── lib/
+│   ├── Common/              # Shared chart and separator widgets
+│   ├── Data/                # Local portfolio and watchlist JSON data
+│   ├── images/              # Runtime app image assets
+│   ├── screens/             # App screens and feature flows
+│   └── styles/              # Shared text and button styles
+├── test/                    # Flutter widget tests
+├── pubspec.yaml
+└── README.md
 ```
 
-2. Install dependencies
+## Getting Started
+
+Make sure Flutter is installed and available on your path.
+
 ```bash
+flutter --version
 flutter pub get
-```
-
-3. Run the application
-```bash
 flutter run
 ```
 
-## Build & Deploy
-### Android
-The Android configuration uses Gradle with the following specifications:
-- Gradle version: 7.1.2
-- Kotlin version: 1.6.10
+To run the test suite:
 
-### iOS
-The iOS project is configured with:
-- Minimum deployment target: iOS 11.0
-- Supports both iPhone and iPad (Universal)
-- Uses Swift 5.0
+```bash
+flutter test
+```
 
-## Development
-The project follows Flutter's standard development practices and includes:
-- Static code analysis configuration
-- Custom lint rules support
-- Recommended Flutter coding practices
+## Notes
 
-## Contributing
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
-
-## Resources
-- [Flutter Documentation](https://docs.flutter.dev/)
-- [Flutter First App Tutorial](https://docs.flutter.dev/get-started/codelab)
-- [Flutter Cookbook](https://docs.flutter.dev/cookbook)
-
-
+- The app currently uses local fixture data from `lib/Data/` and `lib/screens/transaction_history/data.json`.
+- Documentation screenshots live in `docs/screenshots/` so they are separate from runtime app assets.
+- The Flutter app now lives at the repository root, so GitHub visitors can see the codebase immediately without opening a nested project folder.
